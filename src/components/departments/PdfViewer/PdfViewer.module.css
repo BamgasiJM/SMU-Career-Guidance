@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  border-radius: var(--radius-container);
+  overflow: hidden;
+  background: var(--neu-bg);
+  box-shadow: var(--shadow-inset-deep);
+  aspect-ratio: 4 / 3;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-16) var(--sp-8);
+  background: var(--neu-bg);
+  border-radius: var(--radius-container);
+  box-shadow: var(--shadow-inset);
+  text-align: center;
+}
+.emptyIcon { font-size: 2.5rem; opacity: 0.4; }
+.empty p { color: var(--color-text-secondary); font-size: 0.9rem; }
+.emptyHint { color: var(--color-text-muted) !important; font-size: 0.8rem !important; }

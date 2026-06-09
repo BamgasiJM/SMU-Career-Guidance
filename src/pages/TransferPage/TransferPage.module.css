@@ -1,0 +1,208 @@
+.page {
+  min-height: 100vh;
+  padding-top: var(--navbar-h);
+  background: var(--neu-bg);
+}
+
+.container {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--sp-10) var(--sp-8) var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.header { display: flex; flex-direction: column; gap: var(--sp-3); }
+
+.back {
+  align-self: flex-start;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  background: var(--neu-bg);
+  border: none;
+  border-radius: var(--radius-inner);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  padding: var(--sp-2) var(--sp-4);
+  box-shadow: var(--shadow-extruded-sm);
+  min-height: 36px;
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.back:hover { box-shadow: var(--shadow-extruded); color: var(--color-text-primary); }
+.back:active { box-shadow: var(--shadow-inset-sm); }
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-accent-transfer); font-weight: 700; margin-top: var(--sp-4);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800; letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.sub { font-size: 1rem; color: var(--color-text-secondary); word-break: keep-all; }
+
+.section { display: flex; flex-direction: column; gap: var(--sp-5); }
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 800; color: var(--color-text-primary);
+  padding-bottom: var(--sp-3);
+  box-shadow: 0 2px 0 rgb(163, 177, 198, 0.4), 0 3px 0 rgba(255,255,255,0.7);
+}
+
+.sectionDesc { font-size: 0.875rem; color: var(--color-text-muted); }
+
+/* ── 카드 공통 ── */
+.infoGrid, .featureGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5);
+}
+@media (max-width: 680px) {
+  .infoGrid, .featureGrid { grid-template-columns: 1fr; }
+}
+
+.infoCard, .featureCard {
+  background: var(--neu-bg);
+  border: none;
+  border-radius: var(--radius-container);
+  padding: var(--sp-6);
+  display: flex; flex-direction: column; gap: var(--sp-3);
+  box-shadow: var(--shadow-extruded);
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo),
+              transform   var(--duration-normal) var(--ease-out-expo);
+}
+.infoCard:hover, .featureCard:hover {
+  box-shadow: var(--shadow-extruded-hover);
+  transform: translateY(-2px);
+}
+
+.infoIcon, .featureIcon { font-size: 1.6rem; }
+.infoCard strong, .featureCard strong {
+  font-size: 0.95rem; font-weight: 700; color: var(--color-text-primary);
+}
+.infoCard p, .featureCard p {
+  font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all;
+}
+
+/* ── 학점 인정 규칙 ── */
+.ruleList { display: flex; flex-direction: column; gap: var(--sp-3); }
+.ruleCard {
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--radius-base);
+  background: var(--neu-bg);
+  box-shadow: var(--shadow-inset);
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  border-left: 4px solid transparent;
+}
+.ruleCard strong { font-size: 0.9rem; font-weight: 700; }
+.ruleCard p { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
+.positive { border-left-color: var(--color-accent-modular); }
+.positive strong { color: var(--color-accent-modular); }
+.negative { border-left-color: var(--color-accent-self); }
+.negative strong { color: var(--color-accent-self); }
+
+/* ── 태그 ── */
+.tagList { display: flex; flex-wrap: wrap; gap: var(--sp-2); list-style: none; }
+.tag {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--neu-bg);
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-extruded-sm);
+}
+
+/* ── 개설 과정 (ModularPage) ── */
+.courseList { display: flex; flex-direction: column; gap: var(--sp-5); }
+.courseCard {
+  background: var(--neu-bg); border: none;
+  border-radius: var(--radius-container);
+  padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-4);
+  box-shadow: var(--shadow-extruded);
+}
+.courseHeader { display: flex; flex-direction: column; gap: var(--sp-3); }
+.courseName { font-size: 1rem; font-weight: 700; color: var(--color-text-primary); }
+.deptTags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.deptTag {
+  padding: 3px 10px;
+  background: var(--neu-bg);
+  color: var(--color-accent-modular);
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 600;
+  box-shadow: var(--shadow-extruded-sm);
+}
+.courseDesc { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
+
+/* ── 단계 리스트 (SelfDesignPage) ── */
+.stepList { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
+.stepItem {
+  display: flex; align-items: flex-start; gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--neu-bg); border: none;
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-extruded-sm);
+}
+.stepNum { font-size: 0.75rem; font-weight: 900; letter-spacing: 0.05em; color: var(--color-accent-transfer); min-width: 24px; padding-top: 2px; }
+.stepItem p { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
+
+/* ── 예시 카드 (SelfDesignPage) ── */
+.exampleList { display: flex; flex-direction: column; gap: var(--sp-5); }
+.exampleCard {
+  background: var(--neu-bg); border: none;
+  border-radius: var(--radius-container);
+  padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-4);
+  box-shadow: var(--shadow-extruded);
+}
+.exHeader { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-3); }
+.exName { font-size: 1rem; font-weight: 700; color: var(--color-text-primary); }
+.exStudent {
+  font-size: 0.78rem; color: var(--color-text-muted);
+  background: var(--neu-bg); padding: 3px 10px;
+  border-radius: 9999px; border: none;
+  box-shadow: var(--shadow-inset-sm);
+}
+.exGoal { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
+.exCourses { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.courseTag {
+  padding: 3px 10px;
+  background: var(--neu-bg);
+  color: var(--color-accent-transfer);
+  border: none; border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 600;
+  box-shadow: var(--shadow-extruded-sm);
+}
+
+/* ── CTA 버튼 ── */
+.actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+.btnPrimary, .btnOutline {
+  padding: var(--sp-4) var(--sp-8);
+  border-radius: var(--radius-base);
+  font-family: var(--font-sans);
+  font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; border: none;
+  min-height: 48px;
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo),
+              transform  var(--duration-normal) var(--ease-out-expo);
+}
+
+.btnPrimary {
+  background: var(--color-accent-transfer); color: #fff;
+  box-shadow: var(--shadow-extruded-sm);
+}
+.btnPrimary:hover { box-shadow: var(--shadow-extruded); transform: translateY(-1px); }
+.btnPrimary:active { box-shadow: var(--shadow-inset-sm); transform: translateY(0.5px); }
+
+.btnOutline {
+  background: var(--neu-bg); color: var(--color-accent-transfer);
+  box-shadow: var(--shadow-extruded-sm);
+}
+.btnOutline:hover { box-shadow: var(--shadow-extruded); transform: translateY(-1px); }
+.btnOutline:active { box-shadow: var(--shadow-inset-sm); transform: translateY(0.5px); }

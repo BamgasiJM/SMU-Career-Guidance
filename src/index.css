@@ -1,0 +1,167 @@
+/* ─── Google Fonts ─────────────────────────────────────────── */
+/* Plus Jakarta Sans (영문 헤딩) + Noto Sans KR (한글 본문) */
+
+/* ─── CSS Custom Properties ────────────────────────────────── */
+:root {
+  /* ── Neumorphism Base ── */
+  --neu-bg:       #E0E5EC;   /* 전체 배경 — 쿨 클레이 */
+  --neu-surface:  #E0E5EC;   /* 카드·컴포넌트 배경 (배경과 동일) */
+
+  /* ── Shadow (핵심) ── */
+  --shadow-light: rgba(255, 255, 255, 0.55);
+  --shadow-dark:  rgb(163, 177, 198, 0.65);
+
+  /* Extruded (기본 돌출) */
+  --shadow-extruded:
+    9px 9px 16px var(--shadow-dark),
+    -9px -9px 16px var(--shadow-light);
+
+  /* Extruded Hover (강조 돌출) */
+  --shadow-extruded-hover:
+    12px 12px 20px var(--shadow-dark),
+    -12px -12px 20px var(--shadow-light);
+
+  /* Extruded Small (소형 요소) */
+  --shadow-extruded-sm:
+    5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+
+  /* Inset (눌린 상태) */
+  --shadow-inset:
+    inset 6px 6px 10px var(--shadow-dark),
+    inset -6px -6px 10px var(--shadow-light);
+
+  /* Inset Deep (입력창·깊은 웰) */
+  --shadow-inset-deep:
+    inset 10px 10px 20px var(--shadow-dark),
+    inset -10px -10px 20px var(--shadow-light);
+
+  /* Inset Small (얕은 트랙) */
+  --shadow-inset-sm:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+
+  /* ── Text ── */
+  --color-text-primary:   #3D4852;   /* 7.5:1 contrast — WCAG AAA */
+  --color-text-secondary: #6B7280;   /* 4.6:1 contrast — WCAG AA */
+  --color-text-muted:     #A0AEC0;
+
+  /* ── Accent ── */
+  --color-accent-primary:   #6C63FF;  /* 소프트 바이올렛 */
+  --color-accent-transfer:  #6C63FF;  /* 전과 */
+  --color-accent-modular:   #38B2AC;  /* 모듈형 — 틸 */
+  --color-accent-self:      #ED8936;  /* 학생설계 — 앰버 */
+  --color-accent-light:     #8B84FF;
+
+  /* 하위 호환성 — 기존 코드에서 참조하는 변수 유지 */
+  --color-bg:           var(--neu-bg);
+  --color-bg-secondary: var(--neu-bg);
+  --color-surface:      var(--neu-surface);
+  --color-border:       transparent;  /* Neumorphism은 border 미사용 */
+
+  /* ── Typography ── */
+  --font-display: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+  --font-sans:    'Noto Sans KR', sans-serif;
+
+  /* ── Radius ── */
+  --radius-container: 32px;
+  --radius-base:      16px;
+  --radius-inner:     12px;
+
+  /* ── Spacing (8pt grid) ── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ── Motion ── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast:   200ms;
+  --duration-normal: 300ms;   /* Neumorphism 권장 300ms */
+  --duration-slow:   500ms;
+
+  /* ── Layout ── */
+  --max-width: 1280px;
+  --navbar-h:  64px;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--neu-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol { list-style: none; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--neu-bg); }
+::-webkit-scrollbar-thumb {
+  background: rgb(163, 177, 198, 0.5);
+  border-radius: 3px;
+}
+
+/* ─── Utility ────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--sp-8);
+}
+
+/* ─── 공통 Neumorphism 헬퍼 클래스 ─────────────────────────── */
+.neu-extruded      { box-shadow: var(--shadow-extruded); }
+.neu-extruded-hover{ box-shadow: var(--shadow-extruded-hover); }
+.neu-inset         { box-shadow: var(--shadow-inset); }
+.neu-inset-deep    { box-shadow: var(--shadow-inset-deep); }

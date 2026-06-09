@@ -1,0 +1,19 @@
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.title .char:last-child {
+  color: var(--accent, var(--color-accent-primary));
+}

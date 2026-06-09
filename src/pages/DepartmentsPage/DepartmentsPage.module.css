@@ -1,0 +1,95 @@
+.page {
+  min-height: 100vh;
+  padding-top: var(--navbar-h);
+  background: var(--neu-bg);
+}
+
+.header {
+  padding: var(--sp-16) var(--sp-8) var(--sp-10);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.back {
+  align-self: flex-start;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  background: var(--neu-bg);
+  border: none;
+  border-radius: var(--radius-inner);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  padding: var(--sp-2) var(--sp-4);
+  box-shadow: var(--shadow-extruded-sm);
+  min-height: 36px;
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo),
+              color      var(--duration-normal) var(--ease-out-expo);
+}
+.back:hover  { box-shadow: var(--shadow-extruded); color: var(--color-text-primary); }
+.back:active { box-shadow: var(--shadow-inset-sm); }
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.sub {
+  font-size: 1.0-5rem;
+  color: var(--color-text-secondary);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 0 var(--sp-8) var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-10);
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.groupTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: var(--sp-3);
+  /* border 대신 inset shadow 선 */
+  box-shadow: 0 2px 0 rgb(163, 177, 198, 0.4),
+              0 3px 0 rgba(255, 255, 255, 0.7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-4);
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+.empty {
+  padding: var(--sp-16);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}

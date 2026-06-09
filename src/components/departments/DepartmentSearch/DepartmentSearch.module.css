@@ -1,0 +1,65 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: var(--sp-5);
+  color: var(--color-text-muted);
+  display: flex;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: var(--sp-4) var(--sp-12) var(--sp-4) var(--sp-10);
+  background: var(--neu-bg);
+  border: none;
+  border-radius: var(--radius-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  outline: none;
+  /* 기본 inset deep — 입력창은 눌린 상태 */
+  box-shadow: var(--shadow-inset-deep);
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo);
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 52px;
+}
+.input::placeholder { color: var(--color-text-muted); }
+.input:focus {
+  box-shadow: var(--shadow-inset-deep),
+              0 0 0 2px var(--neu-bg),
+              0 0 0 4px var(--color-accent-primary);
+}
+.input::-webkit-search-cancel-button { display: none; }
+
+.clear {
+  position: absolute;
+  right: var(--sp-4);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  transition: color var(--duration-fast);
+  min-width: 28px; min-height: 28px;
+}
+.clear:hover { color: var(--color-text-primary); }
+
+.count {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  padding-left: var(--sp-2);
+}
+.count strong { color: var(--color-accent-primary); }

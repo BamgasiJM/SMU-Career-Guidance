@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════════════
+   DepartmentCard
+   호버: 카드 전체가 violet으로 채워지고 텍스트는 흰색으로 전환
+   ═══════════════════════════════════════════════════════ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border: none;
+  border-radius: 16px;
+  background: var(--color-base);
+  box-shadow: var(--shadow-extruded-sm);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+}
+
+/* 호버: violet 배경 + 살짝 부상 */
+.card:hover {
+  background: var(--color-accent-violet);
+  box-shadow: var(--shadow-extruded-hover);
+  transform: translateY(-4px);
+}
+
+/* 클릭: inset 눌림 피드백 */
+.card:active {
+  background: var(--color-accent-violet);
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(0);
+  filter: brightness(0.88);
+}
+
+/* ── 학과명 ── */
+.name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+  word-break: keep-all;
+  transition: color 0.22s ease;
+}
+
+.card:hover .name {
+  color: #075cbd;
+}
+
+/* ── 단과대학명 (서브텍스트, 있을 경우) ── */
+.college {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: color 0.22s ease;
+}
+
+.card:hover .college {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ── 화살표 아이콘 ── */
+.arrow {
+  align-self: flex-end;
+  font-size: 0.82rem;
+  color: var(--color-text-tertiary, #aab4c8);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.22s ease;
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #075cbd;
+}

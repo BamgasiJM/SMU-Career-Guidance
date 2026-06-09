@@ -1,0 +1,60 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.primary,
+.outline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-6);
+  border-radius: var(--radius-base);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  min-height: 44px;
+  border: none;
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo),
+              transform  var(--duration-normal) var(--ease-out-expo);
+}
+
+/* ── filled ── */
+.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-extruded-sm);
+}
+.primary:hover {
+  box-shadow: var(--shadow-extruded);
+  transform: translateY(-1px);
+}
+.primary:active {
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(0.5px);
+}
+
+/* ── outline / ghost ── */
+.outline {
+  background: var(--neu-bg);
+  color: var(--accent);
+  box-shadow: var(--shadow-extruded-sm);
+}
+.outline:hover {
+  box-shadow: var(--shadow-extruded);
+  transform: translateY(-1px);
+}
+.outline:active {
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(0.5px);
+}
+
+.arrow {
+  font-size: 1rem;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+.primary:hover .arrow,
+.outline:hover .arrow { transform: translateX(4px); }

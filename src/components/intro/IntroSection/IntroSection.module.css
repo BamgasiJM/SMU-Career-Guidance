@@ -1,0 +1,59 @@
+.section {
+  background: var(--neu-bg);
+  padding: var(--sp-24) 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.header { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  font-weight: 700;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+}
+
+.lottieAnim {
+  width: min(260px, 55vw);
+  height: min(260px, 55vw);
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  align-items: center;
+}
+
+.cardsLabel {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+  letter-spacing: -0.01em;
+}

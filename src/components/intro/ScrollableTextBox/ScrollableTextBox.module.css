@@ -1,0 +1,51 @@
+.outer {
+  position: relative;
+  height: var(--box-height, 260px);
+  border-radius: var(--radius-container);
+  overflow: hidden;
+  background: var(--neu-bg);
+  box-shadow: var(--shadow-inset-deep);
+}
+
+.fadeTop,
+.fadeBottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 56px;
+  z-index: 2;
+  pointer-events: none;
+}
+.fadeTop {
+  top: 0;
+  background: linear-gradient(to bottom, var(--neu-bg) 0%, transparent 100%);
+}
+.fadeBottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--neu-bg) 0%, transparent 100%);
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(163, 177, 198, 0.4) transparent;
+  padding: 52px var(--sp-8);
+}
+.scroll::-webkit-scrollbar { width: 3px; }
+.scroll::-webkit-scrollbar-thumb {
+  background: rgb(163, 177, 198, 0.4);
+  border-radius: 2px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.para {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.9;
+  color: var(--color-text-secondary);
+  word-break: keep-all;
+}

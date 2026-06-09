@@ -1,0 +1,7 @@
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.95;  /* 라이트 배경에서 파티클이 너무 강하지 않도록 */
+}

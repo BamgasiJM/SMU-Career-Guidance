@@ -1,0 +1,21 @@
+# 의존성 패키지 (용량이 크고 npm install로 재생성 가능)
+node_modules/
+
+# 빌드 결과물 (배포 시 Vercel이 자체 빌드함)
+dist/
+
+# 환경 변수 (API 키 등 민감 정보)
+.env
+.env.local
+.env.production
+
+# 에디터 설정
+.vscode/
+.idea/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 로그
+*.log

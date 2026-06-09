@@ -13,33 +13,28 @@
   gap: var(--sp-8);
 }
 
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  flex-wrap: wrap;
-}
-
-.crumb {
+.back {
+  align-self: flex-start;
   font-size: 13px;
-  color: var(--color-accent-primary);
-  background: none; border: none;
-  cursor: pointer; font-family: var(--font-sans); padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
+  color: var(--color-text-muted);
+  background: var(--neu-bg);
+  border: none;
+  border-radius: var(--radius-inner);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  padding: var(--sp-2) var(--sp-4);
+  box-shadow: var(--shadow-extruded-sm);
+  min-height: 36px;
+  transition: box-shadow var(--duration-normal) var(--ease-out-expo);
 }
-
-.sep { font-size: 13px; color: var(--color-text-muted); }
-.crumbCurrent { font-size: 13px; color: var(--color-text-muted); }
+.back:hover { box-shadow: var(--shadow-extruded); color: var(--color-text-primary); }
+.back:active { box-shadow: var(--shadow-inset-sm); }
 
 .header { display: flex; flex-direction: column; gap: var(--sp-2); }
 
 .college {
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 22px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
   font-weight: 600;

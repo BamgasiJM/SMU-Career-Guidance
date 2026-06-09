@@ -24,16 +24,8 @@ export default function DepartmentDetailPage() {
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        {/* ── 브레드크럼 ── */}
-        <nav className={styles.breadcrumb} aria-label="breadcrumb">
-          <button onClick={() => navigate('/departments')} className={styles.crumb}>
-            학과 안내
-          </button>
-          <span className={styles.sep} aria-hidden="true">/</span>
-          <span className={styles.crumbCurrent}>{dept.college}</span>
-          <span className={styles.sep} aria-hidden="true">/</span>
-          <span className={styles.crumbCurrent}>{dept.name}</span>
-        </nav>
+        {/* ── 뒤로 가기 ── */}
+        <button className={styles.back} onClick={() => navigate(-1)} aria-label="뒤로 가기">←</button>
 
         {/* ── 헤더 ── */}
         <header className={styles.header}>

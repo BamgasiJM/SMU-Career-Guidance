@@ -1,15 +1,30 @@
 .wrapper {
+  position: relative;
   width: 100%;
+  /* 폭 우선: 읽기 좋은 폭까지 키움 (좁은 화면은 100%). 높이는 비율에 따라 길어져 페이지를 약간 스크롤 */
+  max-width: 900px;
+  margin-inline: auto;
+  aspect-ratio: 210 / 280;   /* A4 세로 비율 — 검은 양옆 여백 방지 */
   border-radius: var(--radius-container);
-  overflow: hidden;
+  overflow: hidden;          /* 오버스케일된 iframe의 검은 여백을 잘라냄 */
   background: var(--neu-bg);
   box-shadow: var(--shadow-inset-deep);
-  aspect-ratio: 4 / 3;
 }
 
+/*
+ * Google Drive /preview 뷰어는 문서 주변에 자체 검은 여백을 두는데
+ * cross-origin iframe이라 내부 스타일을 제어할 수 없습니다.
+ * 대신 iframe을 살짝 키워(translate+scale) 여백을 wrapper 밖으로 밀어내고
+ * overflow:hidden 으로 잘라내, 문서가 가로 기준으로 꽉 차게 보이도록 합니다.
+ * (문서 모서리가 약간 잘릴 수 있음 — 의도된 동작)
+ */
 .frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
+  transform: translate(-50%, -50%) scale(1.05);
   border: none;
   display: block;
 }

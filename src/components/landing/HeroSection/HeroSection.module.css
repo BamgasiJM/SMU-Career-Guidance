@@ -20,9 +20,9 @@
 }
 
 .lottie {
-  width: min(400px, 75vw);
+  width: min(1000px, 75vw);
   height: min(520px, 75vw);
-  opacity: 0.9;
+  opacity: 0.2;
 }
 
 .video {

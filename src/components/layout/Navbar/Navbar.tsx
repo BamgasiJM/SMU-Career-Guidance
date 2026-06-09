@@ -61,7 +61,7 @@ export default function Navbar() {
             alt="smu_logo"
             className={styles.logoImg}
           />
-          <span className={styles.logoText}>커리어 가이던스 | 전공진로설계센터</span>
+          <span className={styles.logoText}>전공‧진로설계센터</span>
         </NavLink>
 
         {/* 데스크탑 메뉴 */}

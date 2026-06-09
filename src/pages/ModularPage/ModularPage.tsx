@@ -51,8 +51,8 @@ export default function ModularPage() {
     <main ref={pageRef} className={styles.page}>
       <div className={styles.container}>
         <header className={styles.header} data-animate>
-          <button className={styles.back} onClick={() => navigate(-1)}>← 뒤로</button>
-          <p className={styles.eyebrow}>진로설계 제도</p>
+          <button className={styles.back} onClick={() => navigate(-1)}>←</button>
+          <p className={styles.eyebrow}>Career Guidance</p>
           <h1 className={styles.title}>모듈형 교육과정</h1>
           <p className={styles.sub}>
             교수진이 설계한 융합 트랙으로 깊이 있는 전문 역량을 키울 수 있습니다.

@@ -43,8 +43,8 @@ export default function SelfDesignPage() {
     <main ref={pageRef} className={styles.page}>
       <div className={styles.container}>
         <header className={styles.header} data-animate>
-          <button className={styles.back} onClick={() => navigate(-1)}>← 뒤로</button>
-          <p className={styles.eyebrow}>진로설계 제도</p>
+          <button className={styles.back} onClick={() => navigate(-1)}>←</button>
+          <p className={styles.eyebrow}>Career Guidance</p>
           <h1 className={styles.title}>학생설계전공</h1>
           <p className={styles.sub}>
             학생 스스로 원하는 전문가 상을 정하고 그에 맞는 교과목을 직접 설계합니다.

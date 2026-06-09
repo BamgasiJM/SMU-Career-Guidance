@@ -47,8 +47,8 @@ export default function TransferPage() {
         <div className={styles.container}>
           {/* 헤더 */}
           <header className={styles.header} data-animate>
-            <button className={styles.back} onClick={() => navigate(-1)}>← 뒤로</button>
-            <p className={styles.eyebrow}>진로설계 제도</p>
+            <button className={styles.back} onClick={() => navigate(-1)}>←</button>
+            <p className={styles.eyebrow}>Career Guidance</p>
             <h1 className={styles.title}>전과 제도</h1>
             <p className={styles.sub}>재학 중 언제든지 원하는 전공으로 변경할 수 있습니다.</p>
           </header>

@@ -42,9 +42,9 @@ export default function DepartmentsPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <button className={styles.back} onClick={() => navigate(-1)}>← 뒤로</button>
+        <button className={styles.back} onClick={() => navigate(-1)}>←</button>
         <h1 className={styles.title}>학과 전공 안내</h1>
-        <p className={styles.sub}>학과를 선택하면 상세 안내 PDF를 확인할 수 있습니다.</p>
+        <p className={styles.sub}>전공을 검색하거나 아래에서 선택하면 교육과정과 목표진로를 확인할 수 있습니다.</p>
       </header>
 
       <div className={styles.container}>

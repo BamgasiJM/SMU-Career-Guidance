@@ -86,7 +86,7 @@ export default function IntroSection() {
 
         {/* ── 세 제도 카드 ── */}
         <div className={styles.cardsWrapper}>
-          <p className={styles.cardsLabel}>아래의 세 가지 제도를 확인해보세요.</p>
+          <p className={styles.cardsLabel}>다양한 방법으로 여러분의 진로를 디자인해보세요.</p>
           <ProgramCardGrid />
         </div>
       </div>

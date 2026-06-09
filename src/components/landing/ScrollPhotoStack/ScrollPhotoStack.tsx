@@ -25,7 +25,7 @@ const RAND_RANGES = {
   leftMin:   15,   leftMax:   85,   // % (뷰포트 폭 기준)
   bottomMin: 5,  bottomMax: 95,   // % (컨테이너 높이 기준)
   widthMin:  110, widthMax:  200,  // px
-  rotateMax: 15,                   // ±deg (음수/양수 랜덤)
+  rotateMax: 5,                   // ±deg (음수/양수 랜덤)
   delayMin:  0.1, delayMax:  0.3,  // scrub delay
 }
 

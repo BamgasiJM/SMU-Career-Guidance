@@ -38,8 +38,8 @@
 }
 
 .lottieAnim {
-  width: min(260px, 55vw);
-  height: min(260px, 55vw);
+  width: min(360px, 55vw);
+  height: min(360px, 55vw);
 }
 
 .cardsWrapper {

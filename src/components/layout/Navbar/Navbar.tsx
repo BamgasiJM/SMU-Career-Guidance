@@ -56,8 +56,12 @@ export default function Navbar() {
       <nav className={styles.nav}>
         {/* 로고 */}
         <NavLink to="/" className={styles.logo}>
-          <span className={styles.logoMark}>SMU</span>
-          <span className={styles.logoText}>진로설계</span>
+          <img
+            src="/assets/logo/smu_logo.png"
+            alt="smu_logo"
+            className={styles.logoImg}
+          />
+          <span className={styles.logoText}>커리어 가이던스 | 전공진로설계센터</span>
         </NavLink>
 
         {/* 데스크탑 메뉴 */}

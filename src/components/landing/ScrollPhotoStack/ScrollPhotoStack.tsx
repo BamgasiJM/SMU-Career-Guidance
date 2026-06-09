@@ -20,16 +20,27 @@ const PHOTOS = [
   '/assets/images/scroll-photos/photo-07.png',
 ]
 
-// 각 사진의 초기 위치·크기 (레이아웃 조정 시 여기만 수정)
-const PHOTO_CONFIGS = [
-  { left: '8%',  bottom: '70%', width: '160px', rotate: -16,  delay: 0.2 },
-  { left: '72%', bottom: '30%', width: '220px', rotate:  4,  delay: 0.1 },
-  { left: '35%', bottom: '10%', width: '200px', rotate: -12,  delay: 0.2 },
-  { left: '5%', bottom: '20%', width: '150px', rotate: 13,  delay: 0.1 },
-  { left: '55%', bottom: '20%', width: '150px', rotate: 9,  delay: 0.1 },
-  { left: '85%', bottom: '60%', width: '140px', rotate: -18,  delay: 0.1 },
-  { left: '35%', bottom: '70%', width: '110px', rotate: 5,  delay: 0.1 },
-]
+// ── 랜덤 범위 설정 (여기만 조정하면 됩니다) ──────────────────────────
+const RAND_RANGES = {
+  leftMin:   15,   leftMax:   85,   // % (뷰포트 폭 기준)
+  bottomMin: 5,  bottomMax: 95,   // % (컨테이너 높이 기준)
+  widthMin:  110, widthMax:  200,  // px
+  rotateMax: 15,                   // ±deg (음수/양수 랜덤)
+  delayMin:  0.1, delayMax:  0.3,  // scrub delay
+}
+
+function rand(min: number, max: number) {
+  return Math.random() * (max - min) + min
+}
+
+// 컴포넌트 마운트마다 재계산되지 않도록 모듈 레벨에서 한 번만 생성
+const PHOTO_CONFIGS = PHOTOS.map(() => ({
+  left:   `${rand(RAND_RANGES.leftMin,   RAND_RANGES.leftMax).toFixed(1)}%`,
+  bottom: `${rand(RAND_RANGES.bottomMin, RAND_RANGES.bottomMax).toFixed(1)}%`,
+  width:  `${Math.round(rand(RAND_RANGES.widthMin, RAND_RANGES.widthMax))}px`,
+  rotate: rand(-RAND_RANGES.rotateMax, RAND_RANGES.rotateMax),
+  delay:  rand(RAND_RANGES.delayMin, RAND_RANGES.delayMax),
+}))
 
 export default function ScrollPhotoStack() {
   const wrapperRef = useRef<HTMLDivElement>(null)

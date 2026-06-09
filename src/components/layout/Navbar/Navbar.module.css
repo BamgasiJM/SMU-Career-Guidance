@@ -28,16 +28,10 @@
   text-decoration: none;
 }
 
-.logoMark {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--color-accent-primary);
-  background: var(--neu-bg);
-  padding: 4px 9px;
-  border-radius: var(--radius-inner);
-  box-shadow: var(--shadow-extruded-sm);
+.logoImg {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .logoText {

@@ -9,17 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.3.6",
+    "@react-three/fiber": "^9.1.2",
+    "gsap": "^3.13.0",
+    "lottie-web": "^5.12.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.0",
-    "@react-three/fiber": "^9.1.2",
-    "@react-three/drei": "^10.3.6",
-    "three": "^0.177.0",
-    "gsap": "^3.13.0",
-    "@gsap/react": "^2.1.2",
-    "lottie-web": "^5.12.2"
+    "three": "^0.177.0"
   },
   "devDependencies": {
+    "@types/node": "^25.9.2",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@types/three": "^0.177.0",

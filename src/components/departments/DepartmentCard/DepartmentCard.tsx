@@ -1,4 +1,4 @@
-import type { Department } from "@/data/departments";
+import type { Department } from "@/types/department";
 import styles from "./DepartmentCard.module.css";
 
 interface Props {

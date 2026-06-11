@@ -14,6 +14,6 @@
   will-change: transform, opacity;
 }
 
-.title .char:last-child {
+.title .char:first-child {
   color: var(--accent, var(--color-accent-primary));
 }

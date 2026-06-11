@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '@/components/layout/Navbar/Navbar'
+import CreditCalc from '@/components/common/CreditCalc/CreditCalc'
 import LandingPage          from '@/pages/LandingPage/LandingPage'
 import DepartmentsPage      from '@/pages/DepartmentsPage/DepartmentsPage'
 import DepartmentDetailPage from '@/pages/DepartmentDetailPage/DepartmentDetailPage'
@@ -18,10 +19,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  // 졸업 학점 계산기 모달 — 현재 페이지 위에 열리도록 App 레벨에서 관리
+  const [showCalc, setShowCalc] = useState(false)
+
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar onOpenCalc={() => setShowCalc(true)} />
       <Routes>
         <Route path="/"                     element={<LandingPage />} />
         <Route path="/departments"          element={<DepartmentsPage />} />
@@ -30,6 +34,7 @@ export default function App() {
         <Route path="/programs/modular"     element={<ModularPage />} />
         <Route path="/programs/self-design" element={<SelfDesignPage />} />
       </Routes>
+      {showCalc && <CreditCalc onClose={() => setShowCalc(false)} />}
     </>
   )
 }

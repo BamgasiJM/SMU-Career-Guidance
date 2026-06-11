@@ -11,7 +11,12 @@ const NAV_ITEMS = [
   { label: '학과 안내',   href: '/departments' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  /** 졸업 학점 계산기 모달 열기 (현재 페이지 위에 오버레이) */
+  onOpenCalc: () => void
+}
+
+export default function Navbar({ onOpenCalc }: NavbarProps) {
   const navRef     = useRef<HTMLElement>(null)
   const location   = useLocation()
   const [scrolled, setScrolled] = useState(false)
@@ -79,6 +84,12 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+          {/* 졸업 학점 계산기 — 강조 색상으로 우측 끝에 배치. 현재 페이지 위에 모달로 열림 */}
+          <li>
+            <button type="button" className={styles.calcLink} onClick={onOpenCalc}>
+              졸업 학점 계산기
+            </button>
+          </li>
         </ul>
 
         {/* 모바일 햄버거 */}
@@ -110,6 +121,16 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+          {/* 졸업 학점 계산기 — 강조 색상으로 맨 아래 배치. 현재 페이지 위에 모달로 열림 */}
+          <li>
+            <button
+              type="button"
+              className={styles.drawerCalcLink}
+              onClick={() => { setMenuOpen(false); onOpenCalc() }}
+            >
+              졸업 학점 계산기
+            </button>
+          </li>
         </ul>
       </div>
     </header>

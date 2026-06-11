@@ -22,11 +22,6 @@ export const PROGRAMS: Program[] = [
         href: '/programs/transfer',
         variant: 'primary',
       },
-      {
-        label: '졸업 학점 계산기',
-        href: '/programs/transfer#calculator',
-        variant: 'outline',
-      },
     ],
   },
   {

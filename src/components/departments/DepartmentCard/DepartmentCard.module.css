@@ -3,6 +3,7 @@
    ═══════════════════════════════════════════════════════ */
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -10,29 +11,48 @@
   padding: 1rem 1.1rem;
   border: none;
   border-radius: 16px;
-  background: var(--color-base);
+  background: var(--neu-bg);
   box-shadow: var(--shadow-extruded-sm);
   cursor: pointer;
   text-align: left;
+  overflow: hidden;
   transition:
-    background 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
+    box-shadow var(--duration-normal) var(--ease-out-expo),
+    transform var(--duration-normal) var(--ease-out-expo);
 }
 
-/* 호버: violet 배경 + 살짝 부상 */
+/* 호버: 인트로 카드처럼 부상 + 강조 컬러 글로우 */
 .card:hover {
-  background: var(--color-accent-violet);
-  box-shadow: var(--shadow-extruded-hover);
-  transform: translateY(-4px);
+  box-shadow:
+    var(--shadow-extruded-hover),
+    0 12px 8px color-mix(in srgb, var(--accent) 20%, transparent);
+  transform: translateY(-4px) scale(1.01);
 }
 
 /* 클릭: inset 눌림 피드백 */
 .card:active {
-  background: var(--color-accent-violet);
   box-shadow: var(--shadow-inset-sm);
-  transform: translateY(0);
-  filter: brightness(0.88);
+  transform: translateY(0.5px);
+}
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-extruded), 0 0 0 2px var(--neu-bg), 0 0 0 4px var(--accent);
+}
+
+/* ── 상단 강조 컬러 바 (호버 시 좌→우로 펼쳐짐) ── */
+.cardAccent {
+  position: absolute;
+  top: 0; left: 1.1rem; right: 1.1rem;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 0 0 3px 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+.card:hover .cardAccent {
+  transform: scaleX(1);
 }
 
 /* ── 학과명 ── */
@@ -46,7 +66,7 @@
 }
 
 .card:hover .name {
-  color: #075cbd;
+  color: var(--accent);
 }
 
 /* ── 단과대학명 (서브텍스트, 있을 경우) ── */
@@ -57,7 +77,7 @@
 }
 
 .card:hover .college {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--accent);
 }
 
 /* ── 화살표 아이콘 ── */
@@ -73,5 +93,5 @@
 .card:hover .arrow {
   opacity: 1;
   transform: translateX(0);
-  color: #075cbd;
+  color: var(--accent);
 }

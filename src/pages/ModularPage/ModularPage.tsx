@@ -1,15 +1,22 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MODULE_COURSES } from '@/data/moduleCourses'
+import CreditCalc from '@/components/common/CreditCalc/CreditCalc'
 import styles from './ModularPage.module.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ModularPage() {
+  const [showCalc, setShowCalc] = useState(false)
   const navigate = useNavigate()
   const pageRef = useRef<HTMLElement>(null)
+
+  // hash 로 계산기 자동 열기
+  useEffect(() => {
+    if (window.location.hash === '#calculator') setShowCalc(true)
+  }, [])
 
   useEffect(() => {
     if (!pageRef.current) return
@@ -27,6 +34,7 @@ export default function ModularPage() {
   }, [])
 
   return (
+    <>
     <main ref={pageRef} className={styles.page}>
       <div className={styles.container}>
         <header className={styles.header} data-animate>
@@ -91,8 +99,14 @@ export default function ModularPage() {
           <button className={styles.btnPrimary} onClick={() => navigate('/departments')}>
             학과 전공 살펴보기 →
           </button>
+          <button className={styles.btnOutline} onClick={() => setShowCalc(true)}>
+            졸업 학점 계산기
+          </button>
         </div>
       </div>
     </main>
+
+    {showCalc && <CreditCalc onClose={() => setShowCalc(false)} />}
+    </>
   )
 }

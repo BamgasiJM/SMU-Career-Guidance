@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import CreditCalc from '@/components/common/CreditCalc/CreditCalc'
 import styles from './SelfDesignPage.module.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -25,8 +26,14 @@ const EXAMPLES = [
 ]
 
 export default function SelfDesignPage() {
+  const [showCalc, setShowCalc] = useState(false)
   const navigate = useNavigate()
   const pageRef = useRef<HTMLElement>(null)
+
+  // hash 로 계산기 자동 열기
+  useEffect(() => {
+    if (window.location.hash === '#calculator') setShowCalc(true)
+  }, [])
 
   useEffect(() => {
     if (!pageRef.current) return
@@ -40,6 +47,7 @@ export default function SelfDesignPage() {
   }, [])
 
   return (
+    <>
     <main ref={pageRef} className={styles.page}>
       <div className={styles.container}>
         <header className={styles.header} data-animate>
@@ -94,8 +102,14 @@ export default function SelfDesignPage() {
           <button className={styles.btnPrimary} onClick={() => navigate('/departments')}>
             학과 전공 살펴보기 →
           </button>
+          <button className={styles.btnOutline} onClick={() => setShowCalc(true)}>
+            졸업 학점 계산기
+          </button>
         </div>
       </div>
     </main>
+
+    {showCalc && <CreditCalc onClose={() => setShowCalc(false)} />}
+    </>
   )
 }

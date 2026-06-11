@@ -23,65 +23,32 @@ const USE_LOTTIE = true;
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const subRef = useRef<HTMLParagraphElement>(null);
   const [mediaError, setMediaError] = useState(false);
 
   // 텍스트 등장 애니메이션
   useGSAP(
     () => {
-      const tl = gsap.timeline({ delay: 0.3 });
-
-      tl.from(headingRef.current, {
+      gsap.from(headingRef.current, {
         y: 32,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-      }).from(
-        subRef.current,
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      );
+        delay: 0.3,
+      });
     },
     { scope: sectionRef },
   );
 
   return (
     <section ref={sectionRef} className={styles.hero} id="hero">
-      {/* ── 배경 미디어 ── */}
-      <div className={styles.media}>
-        {USE_LOTTIE && !mediaError ? (
-          <LottiePlayer
-            src={LOTTIE_SRC}
-            loop
-            autoplay
-            className={styles.lottie}
-          />
-        ) : (
-          <video
-            className={styles.video}
-            src={VIDEO_SRC}
-            autoPlay
-            loop
-            muted
-            playsInline
-            onError={() => setMediaError(true)}
-          />
-        )}
-      </div>
-
-      {/* ── R3F 파티클 (배경 위) ── */}
+      {/* ── R3F 파티클 (배경) ── */}
       <ParticleCanvas />
 
       {/* ── 스크롤 패럴랙스 사진 스택 (일시 비활성화 — 추후 재사용 가능) ── */}
       {/* <ScrollPhotoStack /> */}
 
-      {/* ── 텍스트 오버레이 (최상위) ── */}
-      <div className={styles.overlay}>
+      {/* ── 콘텐츠: 타이틀 상자 + 그 아래 Lottie ── */}
+      <div className={styles.content}>
         <div className={styles.textBlock}>
           <p className={styles.eyebrow}>Career Guidance Program</p>
           <h1 ref={headingRef} className={styles.heading}>
@@ -89,9 +56,28 @@ export default function HeroSection() {
             <br className={styles.mobileBreak} />
             프로그램
           </h1>
-          <p ref={subRef} className={styles.sub}>
-            진로설계, <em>'more'</em> 슬기롭게
-          </p>
+        </div>
+
+        {/* ── 타이틀 아래 미디어 (Lottie / mp4 폴백) ── */}
+        <div className={styles.media}>
+          {USE_LOTTIE && !mediaError ? (
+            <LottiePlayer
+              src={LOTTIE_SRC}
+              loop
+              autoplay
+              className={styles.lottie}
+            />
+          ) : (
+            <video
+              className={styles.video}
+              src={VIDEO_SRC}
+              autoPlay
+              loop
+              muted
+              playsInline
+              onError={() => setMediaError(true)}
+            />
+          )}
         </div>
       </div>
 

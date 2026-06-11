@@ -21,6 +21,31 @@
   border: none;
   text-align: left;
   box-shadow: var(--shadow-extruded);
+  cursor: pointer;
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out-expo),
+    transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.card:hover {
+  box-shadow:
+    var(--shadow-extruded-hover),
+    0 12px 8px color-mix(in srgb, var(--accent) 20%, transparent);
+  transform: translateY(-6px) scale(1.01);
+}
+
+.card:hover .cardTitle {
+  color: var(--accent);
+}
+
+.card:active {
+  box-shadow: var(--shadow-inset-sm);
+  transform: translateY(0.5px);
+}
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-extruded), 0 0 0 2px var(--neu-bg), 0 0 0 4px var(--accent);
 }
 
 /* accent 라인 — 상단 */
@@ -32,9 +57,14 @@
   border-radius: 0 0 3px 3px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--duration-normal) var(--ease-out-expo);
+  transition:
+    transform var(--duration-normal) var(--ease-out-expo),
+    height var(--duration-normal) var(--ease-out-expo);
 }
-.card:hover .cardAccent { transform: scaleX(1); }
+.card:hover .cardAccent {
+  transform: scaleX(1);
+  height: 3px;
+}
 
 .cardTitle {
   font-family: var(--font-display);
@@ -42,6 +72,7 @@
   font-weight: 700;
   color: var(--color-text-primary);
   letter-spacing: -0.01em;
+  transition: color var(--duration-normal) var(--ease-out-expo);
 }
 
 .cardSub {

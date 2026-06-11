@@ -47,9 +47,9 @@
   --color-text-muted:     #A0AEC0;
 
   /* ── Accent ── */
-  --color-accent-primary:   #6C63FF;  /* 소프트 바이올렛 */
-  --color-accent-transfer:  #6C63FF;  /* 전과 */
-  --color-accent-modular:   #38B2AC;  /* 모듈형 — 틸 */
+  --color-accent-primary:   #075cbd;  /* 액센트 - 세명 블루 */
+  --color-accent-transfer:  #2775ce;  /* 전과 */
+  --color-accent-modular:   #2aa29c;  /* 모듈형 — 틸 */
   --color-accent-self:      #ED8936;  /* 학생설계 — 앰버 */
   --color-accent-light:     #8B84FF;
 

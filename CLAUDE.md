@@ -68,7 +68,7 @@ src/
     ├── intro/
     │   ├── IntroSection/        # 인사말 + 캐릭터 Lottie + 제도 카드
     │   ├── ScrollableTextBox/   # 위아래 fade 마스크 스크롤 텍스트
-    │   └── ProgramCardGrid/     # 세 제도 표시 카드 (클릭 없음, 표시 전용)
+    │   └── ProgramCardGrid/     # 세 제도 카드 — 클릭 시 해당 ProgramSection(#program-{id})으로 스크롤
     ├── programs/
     │   ├── ProgramSection/      # 제도 공통 레이아웃 (좌: 제목 / 우: 설명+버튼)
     │   ├── SplitTextTitle/      # GSAP 글자 분해 등장 애니메이션 제목
@@ -121,11 +121,11 @@ src/
 --shadow-inset-sm          /* 버튼 눌림 */
 
 /* Accent */
---color-accent-primary:   #6C63FF   /* 바이올렛 (기본 accent) */
---color-accent-transfer:  #6C63FF   /* 전과 — programs.ts가 참조하는 변수 */
---color-accent-modular:   #38B2AC   /* 틸 — 모듈형 */
+--color-accent-primary:   #075cbd   /* 세명 블루 (기본 accent) */
+--color-accent-transfer:  #2775ce   /* 전과 — programs.ts가 참조하는 변수 */
+--color-accent-modular:   #2aa29c   /* 틸 — 모듈형 */
 --color-accent-self:      #ED8936   /* 앰버 — 학생설계 */
---color-accent-light:     #8B84FF   /* 밝은 바이올렛 변형 */
+--color-accent-light:     #8B84FF   /* 밝은 변형 */
 
 /* 텍스트 */
 --color-text-primary:   #3D4852    /* WCAG AAA 7.5:1 */
@@ -221,9 +221,15 @@ gsap.registerPlugin(useGSAP)
 useGSAP(() => { gsap.from(headingRef.current, { y: 32, opacity: 0 }) }, { scope: sectionRef })
 ```
 
-### R3F 파티클 색상 위치
+### R3F 파티클 설정 위치
 - `ParticleCanvas.tsx` — `PARTICLE_COLOR` 상수
-- `ProgramR3FScene.tsx` — `SCENE_CONFIG` 객체 내 각 제도별 `color`
+- `ProgramR3FScene.tsx` — `SCENE_CONFIG` 객체에 제도별 색·개수·크기 + **움직임 전체**가 모여 있음. 디자인 조정은 이 객체만 수정.
+  - 공통: `color` `count` `size` `shape`(`'scatter'|'grid'|'helix'`) `floatAmp` `floatSpeed`
+  - 전과(`scatter`): 3축 sin/cos 자유 부유
+  - 모듈형(`grid`): x·y는 격자 고정(미세 부유), z축으로 발원점에서 동심원 파장 전파. `waveAmp`/`waveFreq`/`waveSpeed`/`waveFalloff`/`waveCenterX,Y` 로 제어
+  - 학생설계(`helix`): 이중나선(DNA). `helixRadius`/`helixHeight`/`helixTurns`/`flowSpeed`. `flowSpeed`로 나선을 따라 흐르는 속도
+  - 애니메이션은 `useFrame`에서 `base`(기준 좌표) + 시간 오프셋 방식 — 위치를 누적하지 않아 형태가 유지됨
+  - ⚠️ 파티클 `color`는 CSS 변수를 못 써서 hex 하드코딩이며, `--color-accent-*` 토큰과 값이 약간 다름(별도 관리)
 
 ---
 

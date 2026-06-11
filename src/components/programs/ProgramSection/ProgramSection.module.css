@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  min-height: auto;
+  min-height: 100vh; /*섹션의 높이를 변경할 때. 100vh는 전체 화면. 작게하려면 auto*/
   display: flex;
   align-items: center;
   overflow: hidden;

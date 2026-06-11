@@ -3,15 +3,15 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import styles from "./ParticleCanvas.module.css";
 
-const PARTICLE_COUNT = 500;
+const PARTICLE_COUNT = 700;
 const SPREAD_X = 3;
 const SPREAD_Y = 3;
-const SPREAD_Z = 20;
-const PARTICLE_SIZE = 0.035;
+const SPREAD_Z = 15;
+const PARTICLE_SIZE = 0.065;
 const DRIFT_SPEED = 0.0018;
 
 // ── 파티클에 사용할 컬러 팔레트 — 여기에 추가/변경 ──
-const PALETTE = ["#083d9e", "#59978d"];
+const PALETTE = ["#083d9e", "#ecb91f", "#9b56bd"];
 
 function createCircleTexture(): THREE.CanvasTexture {
   const size = 64;

@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import LottiePlayer from "@/components/common/LottiePlayer/LottiePlayer";
 import ParticleCanvas from "@/components/landing/ParticleCanvas/ParticleCanvas";
-import ScrollPhotoStack from "@/components/landing/ScrollPhotoStack/ScrollPhotoStack";
+// import ScrollPhotoStack from "@/components/landing/ScrollPhotoStack/ScrollPhotoStack"; // 일시 비활성화
 import ScrollDownIndicator from "@/components/layout/ScrollDownIndicator/ScrollDownIndicator";
 import styles from "./HeroSection.module.css";
 
@@ -77,8 +77,8 @@ export default function HeroSection() {
       {/* ── R3F 파티클 (배경 위) ── */}
       <ParticleCanvas />
 
-      {/* ── 스크롤 패럴랙스 사진 스택 ── */}
-      <ScrollPhotoStack />
+      {/* ── 스크롤 패럴랙스 사진 스택 (일시 비활성화 — 추후 재사용 가능) ── */}
+      {/* <ScrollPhotoStack /> */}
 
       {/* ── 텍스트 오버레이 (최상위) ── */}
       <div className={styles.overlay}>

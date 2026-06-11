@@ -2,31 +2,10 @@ import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { MODULE_COURSES } from '@/data/moduleCourses'
 import styles from './ModularPage.module.css'
 
 gsap.registerPlugin(ScrollTrigger)
-
-// 현재 개설 과정 데이터 — 추후 실제 데이터로 교체
-const COURSES = [
-  {
-    id: 'smart-health',
-    name: '스마트 헬스케어 트랙',
-    departments: ['보건행정학과', '컴퓨터학과', '전기전자공학과'],
-    desc: '디지털 헬스케어 분야 전문가 양성을 위한 융합 과정입니다.',
-  },
-  {
-    id: 'culture-content',
-    name: '문화콘텐츠 기획 트랙',
-    departments: ['미디어콘텐츠학과', '경영학과', '디자인학과'],
-    desc: '콘텐츠 기획·제작·비즈니스를 아우르는 실무 중심 과정입니다.',
-  },
-  {
-    id: 'green-tech',
-    name: '그린테크 환경 트랙',
-    departments: ['환경공학과', '화학과', '토목공학과'],
-    desc: '탄소중립·환경 기술 분야의 전문 인재 양성 과정입니다.',
-  },
-]
 
 export default function ModularPage() {
   const navigate = useNavigate()
@@ -82,9 +61,9 @@ export default function ModularPage() {
 
         <section className={styles.section} data-animate>
           <h2 className={styles.sectionTitle}>현재 개설 과정</h2>
-          <p className={styles.sectionDesc}>아래 과정은 예시이며, 실제 개설 과정은 학교 공지를 확인하세요.</p>
+          <p className={styles.sectionDesc}>개설된 모듈 과정을 아래에서 확인하세요.</p>
           <div className={styles.courseList}>
-            {COURSES.map(course => (
+            {MODULE_COURSES.map(course => (
               <div key={course.id} className={styles.courseCard}>
                 <div className={styles.courseHeader}>
                   <strong className={styles.courseName}>{course.name}</strong>
@@ -95,6 +74,14 @@ export default function ModularPage() {
                   </div>
                 </div>
                 <p className={styles.courseDesc}>{course.desc}</p>
+                <div className={styles.subjectGroup}>
+                  <span className={styles.subjectLabel}>구성 과목</span>
+                  <div className={styles.subjectTags}>
+                    {course.subjects.map(s => (
+                      <span key={s} className={styles.subjectTag}>{s}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -38,8 +38,8 @@
 }
 
 .lottieAnim {
-  width: min(360px, 55vw);
-  height: min(360px, 55vw);
+  width: min(1024px, 95vw);
+  height: min(300px, 25vw);
 }
 
 .cardsWrapper {
@@ -56,4 +56,14 @@
   color: var(--color-text-primary);
   text-align: center;
   letter-spacing: -0.01em;
+}
+
+/* 모바일에서만 '다양한 방법으로' 다음 줄바꿈 */
+.mobileBreak {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobileBreak {
+    display: inline;
+  }
 }

@@ -23,8 +23,8 @@ const PHOTOS = [
 // ── 랜덤 범위 설정 (여기만 조정하면 됩니다) ──────────────────────────
 const RAND_RANGES = {
   leftMin:   15,   leftMax:   85,   // % (뷰포트 폭 기준)
-  bottomMin: 5,  bottomMax: 95,   // % (컨테이너 높이 기준)
-  widthMin:  110, widthMax:  200,  // px
+  bottomMin: 5,  bottomMax: 15,   // % (컨테이너 높이 기준)
+  widthMin:  110, widthMax:  130,  // px
   rotateMax: 5,                   // ±deg (음수/양수 랜덤)
   delayMin:  0.1, delayMax:  0.3,  // scrub delay
 }

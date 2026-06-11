@@ -140,6 +140,23 @@
 }
 .courseDesc { font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
 
+/* 구성 과목 */
+.subjectGroup { display: flex; flex-direction: column; gap: var(--sp-3); }
+.subjectLabel {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--color-text-muted); text-transform: uppercase;
+}
+.subjectTags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.subjectTag {
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--neu-bg);
+  color: var(--color-text-secondary);
+  border: none;
+  border-radius: var(--radius-inner);
+  font-size: 0.8rem; font-weight: 500;
+  box-shadow: var(--shadow-inset-sm);
+}
+
 /* ── 단계 리스트 (SelfDesignPage) ── */
 .stepList { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
 .stepItem {

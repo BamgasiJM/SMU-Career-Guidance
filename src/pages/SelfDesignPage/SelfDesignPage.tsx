@@ -3,27 +3,10 @@ import { useNavigate } from 'react-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import CreditCalc from '@/components/common/CreditCalc/CreditCalc'
+import { SELF_DESIGN_EXAMPLES } from '@/data/selfDesignExamples'
 import styles from './SelfDesignPage.module.css'
 
 gsap.registerPlugin(ScrollTrigger)
-
-// 학생 설계 예시 — 추후 실제 사례로 교체
-const EXAMPLES = [
-  {
-    id: 'ex1',
-    name: '데이터 저널리즘 전공',
-    student: '미디어콘텐츠학과 3학년',
-    courses: ['데이터 분석 입문', '미디어 글쓰기', '통계학 개론', '디지털 저널리즘'],
-    goal: '데이터를 기반으로 스토리를 전달하는 저널리스트가 되기 위한 설계.',
-  },
-  {
-    id: 'ex2',
-    name: '소셜벤처 경영 전공',
-    student: '경영학과 2학년',
-    courses: ['사회적경제론', '창업론', '사회복지개론', '마케팅 원론'],
-    goal: '사회문제를 비즈니스로 해결하는 소셜벤처 창업가를 목표로 한 설계.',
-  },
-]
 
 export default function SelfDesignPage() {
   const [showCalc, setShowCalc] = useState(false)
@@ -79,9 +62,9 @@ export default function SelfDesignPage() {
 
         <section className={styles.section} data-animate>
           <h2 className={styles.sectionTitle}>학생 설계 예시</h2>
-          <p className={styles.sectionDesc}>실제 학생들의 설계 사례를 참고하세요. (아래는 예시입니다)</p>
+          <p className={styles.sectionDesc}>아래의 전공 이름, 전공 학위, 전공의 목표와 전공 수업명 일부를 확인해보세요. 여러분도 원하는 학과를 설계하여 공부할 수 있습니다.</p>
           <div className={styles.exampleList}>
-            {EXAMPLES.map(ex => (
+            {SELF_DESIGN_EXAMPLES.map(ex => (
               <div key={ex.id} className={styles.exampleCard}>
                 <div className={styles.exHeader}>
                   <strong className={styles.exName}>{ex.name}</strong>

@@ -8,7 +8,7 @@ import styles from './TransferPage.module.css'
 gsap.registerPlugin(ScrollTrigger)
 
 const INELIGIBLE_EXAMPLES = [
-  '의예과', '한의예과', '치의예과', '약학과', '간호학과 (일부 조건)',
+  '한의예과', '간호학과',
 ]
 
 const CREDIT_RULES = [
